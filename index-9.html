@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Veda Sruthi Bondada — Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --bg2: #f3f1ee;
+    --text: #1a1917;
+    --text2: #5a5855;
+    --text3: #9a9895;
+    --accent: #2d6a4f;
+    --accent-light: #e8f4ee;
+    --border: #e4e2de;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,249,247,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--text2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 48px;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text3);
+    font-weight: 400;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 60px;
+    max-width: 540px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    gap: 2px;
+  }
+
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .project-year {
+    font-size: 13px;
+    color: var(--text3);
+  }
+
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 640px;
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 32px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-label {
+    font-size: 12px;
+    color: var(--text3);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* DETAIL SECTIONS */
+  .project-detail {
+    display: none;
+    margin-top: 8px;
+  }
+
+  .project-card.open .project-detail {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .detail-block {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .detail-block h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 14px;
+  }
+
+  .detail-block p, .detail-block li {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .detail-block ul {
+    padding-left: 16px;
+  }
+
+  .detail-block li {
+    margin-bottom: 6px;
+  }
+
+  .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: gap 0.2s;
+  }
+
+  .toggle-btn:hover { gap: 12px; }
+
+  .toggle-icon {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 1;
+    transition: transform 0.3s;
+  }
+
+  .project-card.open .toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: 17px;
+    color: var(--text2);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .about-text p { margin-bottom: 20px; }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sidebar-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .sidebar-block h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 14px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    color: var(--text2);
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .interest-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .interest-list li {
+    font-size: 14px;
+    color: var(--text2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .interest-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--text);
+    border-radius: 24px;
+    padding: 80px;
+    margin: 0 48px 100px;
+    text-align: center;
+  }
+
+  .contact-section .section-label { color: rgba(255,255,255,0.4); }
+
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .contact-section p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-btn.primary {
+    background: var(--white);
+    color: var(--text);
+  }
+
+  .contact-btn.primary:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .contact-btn.secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .contact-btn.secondary:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* SYSTEM PROMPT BLOCK */
+  .prompt-block {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 8px;
+  }
+
+  .prompt-block h4 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 14px;
+  }
+
+  .prompt-intro {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .prompt-block pre {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    overflow: auto;
+    max-height: 480px;
+    font-size: 12px;
+    line-height: 1.65;
+    font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+    color: var(--text);
+    white-space: pre;
+  }
+
+  .prompt-block code {
+    font-family: inherit;
+    background: none;
+    padding: 0;
+  }
+
+  .live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 12px;
+    transition: gap 0.2s;
+  }
+
+  .live-link:hover { gap: 10px; }
+
+  /* SIDE PROJECTS — compact treatment */
+  .side-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  .side-section .section-title {
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--text2);
+    margin-bottom: 40px;
+  }
+
+  .side-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 720px;
+  }
+
+  .side-card {
+    padding: 32px !important;
+    border-radius: 12px !important;
+  }
+
+  .side-card .project-tag {
+    background: var(--bg2);
+    color: var(--text2);
+  }
+
+  .side-card .project-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .side-card .project-desc {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .side-card .project-metrics {
+    gap: 28px;
+    padding: 16px 0;
+    margin-bottom: 24px;
+  }
+
+  .side-card .metric-num {
+    font-size: 20px;
+  }
+
+  .side-card .metric-label {
+    font-size: 11px;
+  }
+
+  .side-card .toggle-btn {
+    font-size: 12px;
+  }
+
+  .side-card .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .hero, section { padding: 100px 24px 60px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .project-card { padding: 28px; }
+    .project-metrics { gap: 20px; }
+    .contact-section { padding: 48px 24px; margin: 0 24px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Veda Sruthi Bondada</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Senior Product Manager · AI & Enterprise</div>
+    <h1>I build AI products<br/>people actually <em>trust.</em></h1>
+    <p class="hero-sub">5 years shipping AI-driven enterprise products at Oracle. I go deep with customers before I build, push back when the direction is wrong, and don't stop until adoption is real.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">90%</div>
+        <div class="stat-label">Adoption on shipped<br/>GenAI features</div>
+      </div>
+      <div>
+        <div class="stat-num">4.5×</div>
+        <div class="stat-label">Lift in customer<br/>output per month</div>
+      </div>
+      <div>
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Reduction in manual<br/>review time</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Projects that shipped and stuck.</h2>
+
+  <!-- PROJECT 1 -->
+  <div class="project-card" onclick="toggleCard(this)">
+    <div class="project-header">
+      <span class="project-tag">Generative AI · Oracle</span>
+      <span class="project-year">2023 – 2024</span>
+    </div>
+    <h3 class="project-title">AI Project Proposal Generator</h3>
+    <p class="project-desc">Project managers were spending 3 days manually pulling data from multiple sources to write proposals. I built a GenAI feature inside Oracle Fusion that reduced that to 15 minutes — and watch proposals per customer increase 4.5x.</p>
+    <div class="project-metrics">
+      <div class="metric">
+        <div class="metric-num">3 days → 15 min</div>
+        <div class="metric-label">Proposal creation time</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">4.5×</div>
+        <div class="metric-label">Proposals per customer per month</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">90%</div>
+        <div class="metric-label">Adoption within one year</div>
+      </div>
+    </div>
+    <button class="toggle-btn">
+      <span>Read the full story</span>
+      <span class="toggle-icon">+</span>
+    </button>
+    <div class="project-detail">
+      <div class="detail-grid">
+        <div class="detail-block">
+          <h4>The Problem</h4>
+          <p>Project managers at Oracle's enterprise customers needed to submit proposals to bid on new work. The process required pulling data from 5–6 sources, writing from scratch, formatting, and reviewing — taking 3 full days. Most PMs submitted only 2–3 proposals per month because they simply didn't have bandwidth for more. The bottleneck wasn't capability. It was time.</p>
+        </div>
+        <div class="detail-block">
+          <h4>What I Built</h4>
+          <p>An AI proposal generator embedded directly in Oracle Fusion. The user inputs a project scope, the feature pulls from a single trusted data source, generates a complete formatted proposal in ~20 seconds, and the PM reviews and edits. No more switching between systems, no more starting from a blank page.</p>
+        </div>
+        <div class="detail-block">
+          <h4>How I Executed</h4>
+          <ul>
+            <li>Worked with an intern on initial prototype and value proposition</li>
+            <li>Partnered with Oracle's AI Prompt Lab — ran 30+ prompt iterations</li>
+            <li>Tracked edit rates and time-to-sign-off as production quality signals</li>
+            <li>Went back to customers after each iteration to validate</li>
+            <li>Conducted beta with continuous optimization post-launch</li>
+            <li>Demoed at Oracle CloudWorld to 1,000+ customers</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>What Changed</h4>
+          <ul>
+            <li>Proposal creation: 3 days → 15 minutes</li>
+            <li>Proposals per customer: 2–3/month → 10+/month (4.5× lift)</li>
+            <li>90% adoption — strongest signal for any AI feature that quarter</li>
+            <li>Expanded Oracle PPM into the pre-project phase — a new segment</li>
+            <li>Generated direct customer inbound post-CloudWorld demo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-card" onclick="toggleCard(this)">
+    <div class="project-header">
+      <span class="project-tag">Agentic AI · Oracle</span>
+      <span class="project-year">2024 – 2025</span>
+    </div>
+    <h3 class="project-title">Contract Lifecycle AI Agents</h3>
+    <p class="project-desc">Manual validation of procurement documents took 3–4 hours per document. I led discovery and architecture for a suite of LLM agents that brought that down to 30–90 seconds — and pushed back on a committed roadmap to get the architecture right.</p>
+    <div class="project-metrics">
+      <div class="metric">
+        <div class="metric-num">3–4 hrs → 90s</div>
+        <div class="metric-label">Per-document validation time</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">70–90%</div>
+        <div class="metric-label">Reduction in billing effort</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">20–40%</div>
+        <div class="metric-label">Faster project setup cycle</div>
+      </div>
+    </div>
+    <button class="toggle-btn">
+      <span>Read the full story</span>
+      <span class="toggle-icon">+</span>
+    </button>
+    <div class="project-detail">
+      <div class="detail-grid">
+        <div class="detail-block">
+          <h4>The Problem</h4>
+          <p>Enterprise procurement teams at Oracle's customers manually validated every purchase order, contract, ordering document, and billing event before it could move forward. Each document took 3–4 hours. Across hundreds of vendors and projects, this meant teams were spending weeks per month on document review alone. Errors caused late payments, lost orders, and delayed projects.</p>
+        </div>
+        <div class="detail-block">
+          <h4>The Architecture Decision</h4>
+          <p>Leadership had committed to 4 separate agents — one per document. I sat with users and discovered nobody treated these as separate tasks. They opened all three documents simultaneously and validated the package as one continuous workflow. I pushed back on the committed roadmap and consolidated the first 3 agents into 1. That decision was the difference between building what was asked and building what was needed.</p>
+        </div>
+        <div class="detail-block">
+          <h4>How the Agents Work</h4>
+          <ul>
+            <li>Triggered from Oracle Fusion when a document is created</li>
+            <li>Classifies document type, extracts fields, validates against business rules</li>
+            <li>Surfaces only exceptions to a human — not the whole document</li>
+            <li>Billing agent reads upstream data, drafts billing events for human approval</li>
+            <li>No autonomous writes to ERP — human approval required at every gate</li>
+            <li>Errors flagged and resolved in ~10 minutes vs. hours in a queue</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>What Changed</h4>
+          <ul>
+            <li>Validation time: 3–4 hours → 30–90 seconds per document</li>
+            <li>Billing effort reduced 70–90%</li>
+            <li>Document review time cut 50–80%</li>
+            <li>Funding mismatches caught before project setup: 70–90%</li>
+            <li>Project setup cycle 20–40% faster</li>
+            <li>Procurement teams scaled without adding headcount</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-card" onclick="toggleCard(this)">
+    <div class="project-header">
+      <span class="project-tag">User Research · Oracle</span>
+      <span class="project-year">2022 – 2023</span>
+    </div>
+    <h3 class="project-title">GMS Grants Management User Research</h3>
+    <p class="project-desc">I proposed going deep with Oracle's grants management customers — no assumptions, just real conversations. 45 surveys, 20+ interviews, and 18 months later, we had shipped 12 features that users actually asked for.</p>
+    <div class="project-metrics">
+      <div class="metric">
+        <div class="metric-num">12</div>
+        <div class="metric-label">Features shipped from real user insights</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">45+</div>
+        <div class="metric-label">Surveys + 20 in-depth interviews</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">4.7/5</div>
+        <div class="metric-label">Customer satisfaction at Grant Summit</div>
+      </div>
+    </div>
+    <button class="toggle-btn">
+      <span>Read the full story</span>
+      <span class="toggle-icon">+</span>
+    </button>
+    <div class="project-detail">
+      <div class="detail-grid">
+        <div class="detail-block">
+          <h4>The Problem</h4>
+          <p>Oracle's Grants Management customers — universities, research institutions, government agencies — were struggling with a platform that hadn't been built around how they actually worked. Features were missing. Workarounds were everywhere. Support tickets were stacking up.</p>
+        </div>
+        <div class="detail-block">
+          <h4>What I Did</h4>
+          <p>I proposed a dedicated research initiative at the Grant Summit — told customers we wanted to build what they actually needed. 45 survey responses gave us a quantitative baseline. 20+ one-hour interviews told us the why behind the what. I built a tiered backlog: quick wins, UX improvements, deeper features — every item with a real user behind it.</p>
+        </div>
+        <div class="detail-block">
+          <h4>Who I Talked To</h4>
+          <ul>
+            <li>Grants administrators managing federal compliance</li>
+            <li>Principal investigators tracking research budgets</li>
+            <li>Project accountants reconciling grant expenditures</li>
+            <li>PMO teams coordinating cross-institutional awards</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>What Changed</h4>
+          <ul>
+            <li>12 features shipped over 18 months — all traceable to user insights</li>
+            <li>4.7/5 customer satisfaction at the following Grant Summit</li>
+            <li>Users returned the next year to give more feedback — trust built</li>
+            <li>Support tickets for missing features dropped significantly</li>
+            <li>Oracle retained and deepened relationships with public sector customers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project-card" onclick="toggleCard(this)">
+    <div class="project-header">
+      <span class="project-tag">Platform Redesign · Oracle</span>
+      <span class="project-year">2021 – 2022</span>
+    </div>
+    <h3 class="project-title">Oracle PPM Platform Redesign</h3>
+    <p class="project-desc">In my first year, I spotted a UX problem nobody had asked me to fix. I built a prototype with an intern, pitched it to VP leadership, got approved, and ran a 3-team design sprint validated by 30+ customers.</p>
+    <div class="project-metrics">
+      <div class="metric">
+        <div class="metric-num">3 teams</div>
+        <div class="metric-label">Design sprint with user validation</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">30+</div>
+        <div class="metric-label">Customers validated the redesign</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">VP approval</div>
+        <div class="metric-label">Secured with a prototype — no mandate</div>
+      </div>
+    </div>
+    <button class="toggle-btn">
+      <span>Read the full story</span>
+      <span class="toggle-icon">+</span>
+    </button>
+    <div class="project-detail">
+      <div class="detail-grid">
+        <div class="detail-block">
+          <h4>The Problem</h4>
+          <p>Oracle's project management platform was built in the 90s. The UI was deeply unintuitive — finding an edit button required navigating dropdown menus instead of a simple pencil icon. New users struggled to onboard. Power users had built workarounds. The experience needed a complete rethink.</p>
+        </div>
+        <div class="detail-block">
+          <h4>What I Did</h4>
+          <p>Nobody asked me to fix this. In my first year, I partnered with an intern, built a Figma prototype of what the platform could look like, and pitched it to product leadership. Instead of debating internally about which design direction was right, I proposed splitting into 3 design teams — let them each build a direction, then let users decide. The best elements from all three were combined into the final framework.</p>
+        </div>
+        <div class="detail-block">
+          <h4>The Learning</h4>
+          <p>The redesign was on track — until generative AI arrived and changed Oracle's strategic direction. I had promised customers the new design was coming. Instead, I had to walk back those promises and redirect toward AI integration. My biggest learning: don't over-promise on timelines in a fast-moving industry. I stayed honest with customers, explained the efficiency gains the new direction would bring, and rebuilt their trust over the following year.</p>
+        </div>
+        <div class="detail-block">
+          <h4>What Changed</h4>
+          <ul>
+            <li>Grassroots initiative became an official program with 2 PMs, 3 UX designers, a researcher</li>
+            <li>Design system became the foundation for Oracle's next-gen UX direction</li>
+            <li>Framework absorbed into the broader AI initiative</li>
+            <li>Demonstrated that proactive initiatives with evidence get approved</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDING NOW (side projects) -->
+<section class="side-section" id="building">
+  <div class="section-label">Building Now</div>
+  <h2 class="section-title">On the side.</h2>
+  <div class="side-projects-grid">
+
+    <!-- WHAT TO SAY -->
+    <div class="project-card side-card" onclick="toggleCard(this)">
+      <div class="project-header">
+        <span class="project-tag">AI Side Project · 2026</span>
+        <span class="project-year">Jun 2026</span>
+      </div>
+      <h3 class="project-title">What to Say</h3>
+      <p class="project-desc">An AI drafting tool for people who don't know how to respond to emotionally hard messages from friends. Built in a day with Lovable and Claude. The user always picks the draft, edits it, and sends — the AI never speaks for them.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-num">1 day</div>
+          <div class="metric-label">Idea to deployed app</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">Drafts only</div>
+          <div class="metric-label">Zero autonomous sends</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">Crisis-safe</div>
+          <div class="metric-label">Refuses to draft in danger</div>
+        </div>
+      </div>
+      <button class="toggle-btn">
+        <span>Read the full story</span>
+        <span class="toggle-icon">+</span>
+      </button>
+      <div class="project-detail">
+        <div class="detail-grid">
+          <div class="detail-block">
+            <h4>The Problem</h4>
+            <p>Hard messages from friends now arrive in text. A breakup. A layoff. A scare. You stare at the screen, not knowing how to respond — wanting to be present, afraid of sounding hollow. Most people freeze and send something they regret. I wanted a tool that helps the human draft something true, without ever becoming the voice talking to the person in distress.</p>
+          </div>
+          <div class="detail-block">
+            <h4>What I Built</h4>
+            <p>The user pastes the message they received, optionally adds context, and clicks "Help me respond." The AI returns three drafts in different registers — Validation, Gentle Question, Offer Presence — plus an opt-in fourth mode, "Honest, with love," for when a friend is stuck in a self-defeating narrative. The user edits the draft they like and copies it to send themselves.</p>
+          </div>
+          <div class="detail-block">
+            <h4>The Decisions That Defined It</h4>
+            <ul>
+              <li>Drafts only. AI never sends anything. Human-in-the-loop is the entire product.</li>
+              <li>Opt-in tough love. Relational judgment — does my friend need this right now? — belongs to the drafter, not the model.</li>
+              <li>The system prompt is the product. Drafts must sound like a friend on their phone, not a therapist's Instagram post. Enforced with explicit anti-patterns.</li>
+              <li>Crisis refusal. If the message signals imminent danger, the product won't draft a reply.</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>How It Shipped</h4>
+            <p>Lovable + Claude Sonnet 4.6, deployed to Netlify. The first version's drafts sounded too constructed — therapist-speak, aphorisms, sentences no human texts. I rewrote the system prompt with explicit anti-patterns and few-shot examples of how friends actually talk. The second version sounds like a friend.</p>
+            <a href="https://here-to-support.lovable.app" target="_blank" class="live-link">View the live demo →</a>
+          </div>
+        </div>
+
+        <div class="prompt-block">
+          <h4>The System Prompt</h4>
+          <p class="prompt-intro">This is the artifact. Most candidates show shipped UIs — almost no one shows their prompts. The prompt is where the PM judgment actually lives.</p>
+          <pre><code>You are a thoughtful drafting assistant. Your job is to help the USER
+think through how to respond to an emotionally difficult message from
+someone in their life. You are never speaking to the person in distress
+— only helping the user draft something they will edit and send
+themselves.
+
+STEP 1 — CRISIS CHECK (do this first, every time)
+
+Evaluate whether the pasted message contains signals of imminent
+crisis: explicit mention of suicide, suicidal ideation, wanting to
+die; stated intent to harm self or others; mentions of plan, means,
+method; phrases like "I can't do this anymore" or "I want it to end"
+with self-harm context; active descriptions of self-harm. When in
+doubt, treat as crisis.
+
+If ANY crisis signals are present, return ONLY:
+{
+  "crisis": true,
+  "message": "This moment calls for direct connection, not a drafted
+   reply. The most helpful thing you can do right now is be present —
+   call them, go to them, or stay on the line. If they're in immediate
+   danger, share 988 (Suicide &amp; Crisis Lifeline) or text HOME to
+   741741. Your presence matters more than perfect words."
+}
+
+STEP 2 — IF NO CRISIS, generate 3 drafts with EXACTLY these approach
+labels: "Validation", "Gentle Question", "Offer Presence". Do NOT
+rename them.
+
+CRITICAL: These need to sound like REAL TEXTS from a close friend on
+a phone. Not a therapist. Not a Brené Brown caption. Not a self-help
+book. A FRIEND. Texting.
+
+What real friend-texts look like:
+- Short. Often 1-2 sentences. Sometimes a fragment.
+- Casual. Contractions. Filler like "ugh," "honestly," "god."
+- One thought. Not a constructed paragraph of insights.
+- Plain language. A 12-year-old understands every word.
+- A little uncertain, a little stumbling.
+
+EXAMPLES OF WHAT NOT TO WRITE (too constructed):
+✗ "Missing someone who didn't treat you the way you deserved is one
+   of the most confusing kinds of hurt."
+✗ "You're not mourning who he was, you're mourning who you hoped
+   he could be."
+✗ "I want to understand what you're going through."
+✗ Any sentence that could appear in a therapist's Instagram post.
+
+EXAMPLES OF WHAT TO WRITE (real, short, friend-texts):
+✓ "ugh i'm so sorry. that ache is real."
+✓ "god that's so hard. i'm so sorry."
+✓ "this is brutal. thinking about you."
+✓ "i hate that he made you feel that way."
+✓ "want to talk? i can call right now."
+✓ "i'm here. whenever, however."
+
+HARD RULES:
+- Validate FIRST. Always.
+- Never advise, fix, or problem-solve.
+- Never minimize: no "at least," "could be worse," "you'll be okay."
+- Never project: no "I know exactly how you feel."
+- No therapist-speak. No clinical framing. No constructed wisdom.
+- Keep it SHORT. 1-3 sentences max per draft.
+
+Approach definitions:
+1. "Validation" — just acknowledge. No question, no offer. Witness
+    it. 1-2 sentences.
+2. "Gentle Question" — brief validate, then ONE open, non-leading
+    question. 2-3 sentences total.
+3. "Offer Presence" — brief validate, then offer to be there (call,
+    time, attention). 2-3 sentences total.
+
+OPTIONAL 4TH APPROACH (only if user toggled "honest-friend draft" ON):
+"Honest, with love"
+
+For moments when a friend is stuck in a self-defeating narrative —
+e.g., "I'm worthless, no one will hire me," "I ruined everything."
+Pure validation alone won't serve them. Gently names a loving truth
+without lecturing, shaming, or minimizing.
+
+Rules:
+- ALWAYS lead with love, validation, or acknowledgment.
+- Then offer one honest reframe, grounded in user-provided context.
+- Never lecture. No "you need to," "you should," "stop."
+- 2-3 sentences max. Sound like a best friend, not a coach.
+
+EXAMPLES:
+✓ "i hear you. and honestly? you said the same thing about your last
+   job hunt and you landed somewhere amazing. you're not worthless,
+   you're tired."
+✓ "this sucks and i'm sorry. but i need to remind you what you told
+   me about him in march. you knew."
+
+Return JSON:
+{
+  "crisis": false,
+  "drafts": [
+    {"approach": "Validation", "text": "..."},
+    {"approach": "Gentle Question", "text": "..."},
+    {"approach": "Offer Presence", "text": "..."}
+    // + "Honest, with love" if toggled ON
+  ]
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">The person behind the product.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Senior PM with 5 years at Oracle shipping AI-driven enterprise products. My background is in computer science — I started as a software engineer, which means I don't hand things to engineering and walk away. I stay in the weeds.</p>
+      <p>Most of what I've shipped started with a customer conversation I initiated before anyone asked me to. I believe the best features come from sitting with the actual user — not a survey, not a proxy — and watching how they work.</p>
+      <p>I'm drawn to companies building AI that completes things, not just assists. The gap between AI that suggests and AI that acts is where I want to work.</p>
+      <p>Outside of work: national-level competitive swimmer, TEDx curator and emcee, founded a college tech magazine, and part of the Hemingway mental health innovation community.</p>
+    </div>
+    <div class="about-sidebar">
+      <div class="sidebar-block">
+        <h4>Core Skills</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">AI Agent Development</span>
+          <span class="skill-tag">LLMs & Prompt Engineering</span>
+          <span class="skill-tag">Generative AI Products</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">Enterprise SaaS</span>
+          <span class="skill-tag">Roadmap Strategy</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">KPI Ownership</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Agile / Sprint Execution</span>
+        </div>
+      </div>
+      <div class="sidebar-block">
+        <h4>Education</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">MS Information Management · UIUC</span>
+          <span class="skill-tag">BTech Computer Science · GITAM</span>
+          <span class="skill-tag">Psychology · UC Berkeley Extension</span>
+        </div>
+      </div>
+      <div class="sidebar-block">
+        <h4>Beyond Work</h4>
+        <ul class="interest-list">
+          <li>National-level competitive swimmer</li>
+          <li>TEDx curator and emcee</li>
+          <li>Founded college tech magazine</li>
+          <li>Hemingway mental health innovation community</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2>Let's work together.</h2>
+  <p>Open to senior PM roles in AI, enterprise software, and mental health tech.</p>
+  <div class="contact-links">
+    <a href="mailto:vedabondada@gmail.com" class="contact-btn primary">vedabondada@gmail.com</a>
+    <a href="https://linkedin.com/in/vedabondada" target="_blank" class="contact-btn secondary">LinkedIn →</a>
+  </div>
+</div>
+
+<script>
+  function toggleCard(card) {
+    const wasOpen = card.classList.contains('open');
+    document.querySelectorAll('.project-card').forEach(c => c.classList.remove('open'));
+    if (!wasOpen) card.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
